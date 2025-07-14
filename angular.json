@@ -1,7 +1,336 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "newProjectRoot": "projects",
-  "projects": {
-  }
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"petshop-shell": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/petshop-shell",
+			"sourceRoot": "projects/petshop-shell/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"tsConfig": "projects/petshop-shell/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							{
+								"glob": "**/*",
+								"input": "projects/petshop-shell/public",
+								"output": "."
+							}
+						],
+						"styles": [
+							"projects/petshop-shell/src/styles.scss"
+						],
+						"outputMode": "server",
+						"ssr": {
+							"entry": "projects/petshop-shell/src/server.ts"
+						},
+						"main": "projects/petshop-shell/src/main.ts",
+						"outputPath": "dist/petshop-shell",
+						"index": "projects/petshop-shell/src/index.html",
+						"extraWebpackConfig": "projects/petshop-shell/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kB",
+									"maximumError": "1MB"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "4kB",
+									"maximumError": "8kB"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/petshop-shell/webpack.prod.config.js"
+						},
+						"development": {
+							"optimization": false,
+							"extractLicenses": false,
+							"sourceMap": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"buildTarget": "petshop-shell:build:production",
+							"extraWebpackConfig": "projects/petshop-shell/webpack.prod.config.js"
+						},
+						"development": {
+							"buildTarget": "petshop-shell:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4200,
+						"publicHost": "http://localhost:4200",
+						"extraWebpackConfig": "projects/petshop-shell/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "@angular/build:extract-i18n"
+				},
+				"test": {
+					"builder": "@angular/build:karma",
+					"options": {
+						"tsConfig": "projects/petshop-shell/tsconfig.spec.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							{
+								"glob": "**/*",
+								"input": "projects/petshop-shell/public"
+							}
+						],
+						"styles": [
+							"projects/petshop-shell/src/styles.scss"
+						]
+					}
+				}
+			}
+		},
+		"petshop-auth": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/petshop-auth",
+			"sourceRoot": "projects/petshop-auth/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/petshop-auth",
+						"tsConfig": "projects/petshop-auth/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							{
+								"glob": "**/*",
+								"input": "projects/petshop-auth/public",
+								"output": "."
+							}
+						],
+						"styles": [
+							"projects/petshop-auth/src/styles.scss"
+						],
+						"outputMode": "server",
+						"ssr": {
+							"entry": "projects/petshop-auth/src/server.ts"
+						},
+						"main": "projects/petshop-auth/src/main.ts",
+						"index": "projects/petshop-auth/src/index.html",
+						"extraWebpackConfig": "projects/petshop-auth/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kB",
+									"maximumError": "1MB"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "4kB",
+									"maximumError": "8kB"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/petshop-auth/webpack.prod.config.js"
+						},
+						"development": {
+							"optimization": false,
+							"extractLicenses": false,
+							"sourceMap": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"buildTarget": "petshop-auth:build:production",
+							"extraWebpackConfig": "projects/petshop-auth/webpack.prod.config.js"
+						},
+						"development": {
+							"buildTarget": "petshop-auth:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4201,
+						"publicHost": "http://localhost:4201",
+						"extraWebpackConfig": "projects/petshop-auth/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "@angular/build:extract-i18n"
+				},
+				"test": {
+					"builder": "@angular/build:karma",
+					"options": {
+						"tsConfig": "projects/petshop-auth/tsconfig.spec.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							{
+								"glob": "**/*",
+								"input": "projects/petshop-auth/public"
+							}
+						],
+						"styles": [
+							"projects/petshop-auth/src/styles.scss"
+						]
+					}
+				}
+			}
+		},
+		"petshop-financeiro": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"root": "projects/petshop-financeiro",
+			"sourceRoot": "projects/petshop-financeiro/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/petshop-financeiro",
+						"tsConfig": "projects/petshop-financeiro/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							{
+								"glob": "**/*",
+								"input": "projects/petshop-financeiro/public",
+								"output": "."
+							}
+						],
+						"styles": [
+							"projects/petshop-financeiro/src/styles.scss"
+						],
+						"outputMode": "server",
+						"ssr": {
+							"entry": "projects/petshop-financeiro/src/server.ts"
+						},
+						"main": "projects/petshop-financeiro/src/main.ts",
+						"index": "projects/petshop-financeiro/src/index.html",
+						"extraWebpackConfig": "projects/petshop-financeiro/webpack.config.js",
+						"commonChunk": false
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "500kB",
+									"maximumError": "1MB"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "4kB",
+									"maximumError": "8kB"
+								}
+							],
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/petshop-financeiro/webpack.prod.config.js"
+						},
+						"development": {
+							"optimization": false,
+							"extractLicenses": false,
+							"sourceMap": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"buildTarget": "petshop-financeiro:build:production",
+							"extraWebpackConfig": "projects/petshop-financeiro/webpack.prod.config.js"
+						},
+						"development": {
+							"buildTarget": "petshop-financeiro:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4202,
+						"publicHost": "http://localhost:4202",
+						"extraWebpackConfig": "projects/petshop-financeiro/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "@angular/build:extract-i18n"
+				},
+				"test": {
+					"builder": "@angular/build:karma",
+					"options": {
+						"tsConfig": "projects/petshop-financeiro/tsconfig.spec.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							{
+								"glob": "**/*",
+								"input": "projects/petshop-financeiro/public"
+							}
+						],
+						"styles": [
+							"projects/petshop-financeiro/src/styles.scss"
+						]
+					}
+				}
+			}
+    },
+    "shared": {
+      "projectType": "library",
+      "root": "projects/shared",
+      "sourceRoot": "projects/shared/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/shared/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/shared/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/shared/tsconfig.spec.json"
+          }
+        }
+      }
+    }
+	},
+	"cli": {
+		"analytics": "fc1aa741-1c3a-492f-995b-91d69ef503c8"
+	}
 }

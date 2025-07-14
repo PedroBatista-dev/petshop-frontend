@@ -1,17 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
-import { AuthService, BaseComponent, ControlErrorDisplayDirective, LoginPayload, MaterialImports, NotificationService } from '../../../../../shared/src/public-api';
+import { MaterialImports } from '../../material/material.imports.js';
+import { AuthService, BaseComponent, ControlErrorDisplayDirective, LoginPayload, NotificationService } from '../../../../../shared/src/public-api';
 
 @Component({
   selector: 'app-login',
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    ...MaterialImports,
     ControlErrorDisplayDirective,
+    ...MaterialImports,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'

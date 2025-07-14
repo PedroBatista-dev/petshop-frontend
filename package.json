@@ -9,7 +9,7 @@
     "test": "ng test",
     "serve:ssr:petshop-shell": "node dist/petshop-shell/server/server.mjs",
     "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js",
-    "run:allProjects": "ng serve petshop-shell & ng serve petshop-auth & ng serve petshop-financeiro",
+    "serve:all": "ng build shared && npm run run:all",
     "serve:ssr:petshop-auth": "node dist/petshop-auth/server/server.mjs",
     "serve:ssr:petshop-financeiro": "node dist/petshop-financeiro/server/server.mjs"
   },
@@ -26,6 +26,7 @@
   "private": true,
   "dependencies": {
     "@angular-architects/module-federation": "^20.0.0",
+    "@angular/animations": "^20.1.0",
     "@angular/cdk": "^20.1.0",
     "@angular/common": "^20.1.0",
     "@angular/compiler": "^20.1.0",

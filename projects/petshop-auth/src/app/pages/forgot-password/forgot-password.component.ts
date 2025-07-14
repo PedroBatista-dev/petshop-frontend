@@ -3,7 +3,8 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { finalize } from 'rxjs';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { AuthService, BaseComponent, ControlErrorDisplayDirective, MaterialImports, NotificationService } from '../../../../../shared/src/public-api.js';
+import { AuthService, BaseComponent, ControlErrorDisplayDirective, NotificationService } from '../../../../../shared/src/public-api.js';
+import { MaterialImports } from '../../material/material.imports.js';
 
 @Component({
   selector: 'app-forgot-password',

@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { debounceTime, finalize } from 'rxjs';
 import zxcvbn from 'zxcvbn';
-import { AuthService, BaseComponent, ControlErrorDisplayDirective, matchPasswordsValidator, MaterialImports, NotificationService, strongPasswordValidator } from '../../../../../shared/src/public-api';
+import { AuthService, BaseComponent, matchPasswordsValidator, NotificationService, strongPasswordValidator } from 'shared';
+import { ControlErrorDisplayDirective } from '../../../../../shared/src/public-api';
+import { MaterialImports } from '../../material/material.imports';
 
 @Component({
   selector: 'app-reset-password',
@@ -31,8 +33,8 @@ export class ResetPasswordComponent extends BaseComponent implements OnInit {
   constructor(
     protected override fb: FormBuilder,
     protected override router: Router,
-    protected override notificationService: NotificationService,
-    protected override authService: AuthService,
+    @Inject(NotificationService) protected override notificationService: NotificationService,
+    @Inject(AuthService) protected override authService: AuthService,
     private route: ActivatedRoute
   ) {
     super(fb, router, notificationService, authService);

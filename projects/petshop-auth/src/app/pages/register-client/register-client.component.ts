@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgxMaskDirective } from 'ngx-mask';
 import { Router } from '@angular/router';
 import { debounceTime, finalize } from 'rxjs';
 import zxcvbn from 'zxcvbn';
-import { AuthService, AutocompleteItem, AutoFocusDirective, BaseComponent, ControlErrorDisplayDirective, cpfValidator, dateFormatValidator, EmpresaService, GenericAutocompleteComponent, matchPasswordsValidator, MaterialImports, NotificationService, PrimeiraLetraMaiusculaDirective, RegisterClientPayload, strongPasswordValidator, telefoneValidator } from '../../../../../shared/src/public-api';
+import { AuthService, AutocompleteItem, BaseComponent, cpfValidator, dateFormatValidator, EmpresaService, matchPasswordsValidator, NotificationService, RegisterClientPayload, strongPasswordValidator, telefoneValidator } from 'shared';
+import { MaterialImports } from '../../material/material.imports.js';
+import { AutoFocusDirective, ControlErrorDisplayDirective, GenericAutocompleteComponent, PrimeiraLetraMaiusculaDirective } from '../../../../../shared/src/public-api';
 
 
 @Component({
@@ -35,9 +37,9 @@ export class RegisterClientComponent extends BaseComponent implements OnInit {
   constructor(
     protected override fb: FormBuilder,
     protected override router: Router,
-    protected override notificationService: NotificationService,
-    protected override authService: AuthService,
-    public empresaService: EmpresaService,
+    @Inject(NotificationService) protected override notificationService: NotificationService,
+    @Inject(AuthService) protected override authService: AuthService,
+    @Inject(EmpresaService) public empresaService: EmpresaService,
   ) {
     super(fb, router, notificationService, authService);
     

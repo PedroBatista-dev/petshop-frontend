@@ -8,6 +8,7 @@ import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/
 import { AuthInterceptor, CUSTOM_DATE_FORMATS } from '../../../shared/src/public-api';
 import { MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { provideNgxMask } from 'ngx-mask';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,6 +17,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes), 
     provideClientHydration(withEventReplay()),
     provideAnimations(),
+    provideAnimationsAsync(),
     provideHttpClient(withInterceptors([AuthInterceptor]), withFetch()),
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }, 
     { provide: MAT_DATE_FORMATS, useValue: CUSTOM_DATE_FORMATS },

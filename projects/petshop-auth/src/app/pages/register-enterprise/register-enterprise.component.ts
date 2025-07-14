@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgxMaskDirective } from 'ngx-mask';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
-import { AuthService, AutoFocusDirective, BaseComponent, cnpjValidator, ControlErrorDisplayDirective, MaterialImports, NotificationService, PrimeiraLetraMaiusculaDirective, RegisterClientPayload, telefoneValidator } from '../../../../../shared/src/public-api';
+import { AuthService, BaseComponent, cnpjValidator, NotificationService, RegisterClientPayload, telefoneValidator } from 'shared';
+import { AutoFocusDirective, ControlErrorDisplayDirective, PrimeiraLetraMaiusculaDirective } from '../../../../../shared/src/public-api';
+import { MaterialImports } from '../../material/material.imports';
 
 @Component({
   selector: 'app-register-enterprise',
@@ -32,8 +34,8 @@ export class RegisterEnterpriseComponent extends BaseComponent {
   constructor(
     protected override fb: FormBuilder,
     protected override router: Router,
-    protected override notificationService: NotificationService,
-    protected override authService: AuthService,
+    @Inject(NotificationService) protected override notificationService: NotificationService,
+    @Inject(AuthService) protected override authService: AuthService,
   ) {
     super(fb, router, notificationService, authService);
     

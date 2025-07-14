@@ -1,10 +1,10 @@
 // src/app/shared/components/base/base.component.ts
-import { Directive, OnDestroy, OnInit } from '@angular/core';
+import { Directive, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms'; 
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { NotificationService } from '../../services/notification.service';
-import { AuthService } from '../../../../../core-auth/src/lib/auth/auth.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Directive()
 export abstract class BaseComponent implements OnDestroy {

@@ -7,8 +7,8 @@ import { NotificationService } from '../notification.service';
 import { BaseService } from '../base/base.service';
 
 // Importe o modelo de Empresa
-import { Empresa } from '../../models/empresa.model'; // <-- Importe o modelo
-import { environment } from '../../../../../../src/environments/environment';
+import { Empresa } from '../../models/empresa.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'

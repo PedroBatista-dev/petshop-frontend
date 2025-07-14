@@ -1,16 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { BaseComponent } from '../../../../../../projects/shared-ui-utils/src/lib/components/base/base.component';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MaterialImports } from '../../../../../../projects/shared-ui-utils/src/lib/material/material.imports';
-import { ControlErrorDisplayDirective } from '../../../../../../projects/shared-ui-utils/src/lib/directives/control-error-display.directive';
-import { AuthService } from '../../../../../../projects/core-auth/src/lib/auth/auth.service';
-import { NotificationService } from '../../../../../../projects/shared-ui-utils/src/lib/services/notification.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { strongPasswordValidator } from '../../../../../../projects/shared-ui-utils/src/lib/validators/strong-password.validator';
-import { matchPasswordsValidator } from '../../../../../../projects/shared-ui-utils/src/lib/validators/match-passwords.validator';
 import { debounceTime, finalize } from 'rxjs';
 import zxcvbn from 'zxcvbn';
+import { AuthService, BaseComponent, ControlErrorDisplayDirective, matchPasswordsValidator, MaterialImports, NotificationService, strongPasswordValidator } from '../../../../../shared/src/public-api';
 
 @Component({
   selector: 'app-reset-password',

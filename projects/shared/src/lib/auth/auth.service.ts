@@ -6,8 +6,8 @@ import { tap, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { LoginPayload, LoginResponse, RegisterClientPayload, UserProfile } from './models/auth.model';
-import { environment } from '../../../../../src/environments/environment';
-import { NotificationService } from '../../../../shared-ui-utils/src/lib/services/notification.service';
+import { NotificationService } from '../services/notification.service';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root' // Mantenha para ser injetável em qualquer lugar

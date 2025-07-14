@@ -35,3 +35,5 @@ export * from './lib/auth/auth.service.js';
 export * from './lib/auth/models/auth.model.js';
 
 export * from './lib/interceptors/auth.interceptor.js';
+
+export * from './lib/environments/environment.js';

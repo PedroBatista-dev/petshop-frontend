@@ -1,25 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { BaseComponent } from '../../../../../../projects/shared-ui-utils/src/lib/components/base/base.component';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MaterialImports } from '../../../../../../projects/shared-ui-utils/src/lib/material/material.imports';
 import { NgxMaskDirective } from 'ngx-mask';
-import { ControlErrorDisplayDirective } from '../../../../../../projects/shared-ui-utils/src/lib/directives/control-error-display.directive';
-import { PrimeiraLetraMaiusculaDirective } from '../../../../../../projects/shared-ui-utils/src/lib/directives/first-capital-letter.directive';
-import { AutoFocusDirective } from '../../../../../../projects/shared-ui-utils/src/lib/directives/auto-focus.directive';
 import { Router } from '@angular/router';
-import { NotificationService } from '../../../../../../projects/shared-ui-utils/src/lib/services/notification.service';
-import { AuthService } from '../../../../../../projects/core-auth/src/lib/auth/auth.service';
-import { EmpresaService } from '../../../../../../projects/shared-ui-utils/src/lib/services/empresa/empresa.service';
-import { cpfValidator } from '../../../../../../projects/shared-ui-utils/src/lib/validators/cpf.validator';
-import { dateFormatValidator } from '../../../../../../projects/shared-ui-utils/src/lib/validators/date-format.validator';
-import { telefoneValidator } from '../../../../../../projects/shared-ui-utils/src/lib/validators/telefone.validator';
-import { strongPasswordValidator } from '../../../../../../projects/shared-ui-utils/src/lib/validators/strong-password.validator';
-import { matchPasswordsValidator } from '../../../../../../projects/shared-ui-utils/src/lib/validators/match-passwords.validator';
 import { debounceTime, finalize } from 'rxjs';
-import { AutocompleteItem, GenericAutocompleteComponent } from '../../../../../../projects/shared-ui-utils/src/lib/components/generic-autocomplete/generic-autocomplete.component';
-import { RegisterClientPayload } from '../../../../../../projects/core-auth/src/lib/auth/models/auth.model';
 import zxcvbn from 'zxcvbn';
+import { AuthService, AutocompleteItem, AutoFocusDirective, BaseComponent, ControlErrorDisplayDirective, cpfValidator, dateFormatValidator, EmpresaService, GenericAutocompleteComponent, matchPasswordsValidator, MaterialImports, NotificationService, PrimeiraLetraMaiusculaDirective, RegisterClientPayload, strongPasswordValidator, telefoneValidator } from '../../../../../shared/src/public-api';
+
 
 @Component({
   selector: 'app-register-client',

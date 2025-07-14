@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { NotificationService } from '../../../../../../projects/shared-ui-utils/src/lib/services/notification.service';
-import { AuthService } from '../../../../../../projects/core-auth/src/lib/auth/auth.service';
 import { finalize } from 'rxjs';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MaterialImports } from '../../../../../../projects/shared-ui-utils/src/lib/material/material.imports';
-import { ControlErrorDisplayDirective } from '../../../../../../projects/shared-ui-utils/src/lib/directives/control-error-display.directive';
+import { AuthService, BaseComponent, ControlErrorDisplayDirective, MaterialImports, NotificationService } from '../../../../../shared/src/public-api.js';
 
 @Component({
   selector: 'app-forgot-password',
@@ -14,7 +11,7 @@ import { ControlErrorDisplayDirective } from '../../../../../../projects/shared-
     CommonModule,
     ReactiveFormsModule,
     ...MaterialImports,
-    ControlErrorDisplayDirective,
+    ControlErrorDisplayDirective
   ],
   templateUrl: './forgot-password.component.html',
   styleUrl: './forgot-password.component.scss'

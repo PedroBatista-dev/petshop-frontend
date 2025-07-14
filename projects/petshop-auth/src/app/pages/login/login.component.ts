@@ -1,14 +1,9 @@
 import { Component } from '@angular/core';
-import { BaseComponent } from '../../../../../../projects/shared-ui-utils/src/lib/components/base/base.component';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MaterialImports } from '../../../../../../projects/shared-ui-utils/src/lib/material/material.imports';
-import { ControlErrorDisplayDirective } from '../../../../../../projects/shared-ui-utils/src/lib/directives/control-error-display.directive';
 import { Router } from '@angular/router';
-import { NotificationService } from '../../../../../../projects/shared-ui-utils/src/lib/services/notification.service';
-import { AuthService } from '../../../../../../projects/core-auth/src/lib/auth/auth.service';
-import { LoginPayload } from '../../../../../../projects/core-auth/src/lib/auth/models/auth.model';
 import { finalize } from 'rxjs';
+import { AuthService, BaseComponent, ControlErrorDisplayDirective, LoginPayload, MaterialImports, NotificationService } from '../../../../../shared/src/public-api';
 
 @Component({
   selector: 'app-login',

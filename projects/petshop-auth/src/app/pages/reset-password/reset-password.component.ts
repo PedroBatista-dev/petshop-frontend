@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { debounceTime, finalize } from 'rxjs';
 import zxcvbn from 'zxcvbn';
 import { AuthService, BaseComponent, matchPasswordsValidator, NotificationService, strongPasswordValidator } from 'shared';
-import { ControlErrorDisplayDirective } from '../../../../../shared/src/public-api';
+import { ControlErrorDisplayDirective } from 'shared';
 import { MaterialImports } from '../../material/material.imports';
 
 @Component({

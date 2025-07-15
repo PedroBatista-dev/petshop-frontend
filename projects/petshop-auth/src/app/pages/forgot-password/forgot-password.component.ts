@@ -3,7 +3,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { finalize } from 'rxjs';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { AuthService, BaseComponent, ControlErrorDisplayDirective, NotificationService } from '../../../../../shared/src/public-api.js';
+import { AuthService, BaseComponent, ControlErrorDisplayDirective, NotificationService } from 'shared';
 import { MaterialImports } from '../../material/material.imports.js';
 
 @Component({

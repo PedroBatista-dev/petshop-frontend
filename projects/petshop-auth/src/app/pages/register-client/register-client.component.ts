@@ -7,7 +7,7 @@ import { debounceTime, finalize } from 'rxjs';
 import zxcvbn from 'zxcvbn';
 import { AuthService, AutocompleteItem, BaseComponent, cpfValidator, dateFormatValidator, EmpresaService, matchPasswordsValidator, NotificationService, RegisterClientPayload, strongPasswordValidator, telefoneValidator } from 'shared';
 import { MaterialImports } from '../../material/material.imports.js';
-import { AutoFocusDirective, ControlErrorDisplayDirective, GenericAutocompleteComponent, PrimeiraLetraMaiusculaDirective } from '../../../../../shared/src/public-api';
+import { AutoFocusDirective, ControlErrorDisplayDirective, GenericAutocompleteComponent, PrimeiraLetraMaiusculaDirective } from 'shared';
 
 
 @Component({

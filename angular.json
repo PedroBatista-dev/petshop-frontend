@@ -29,10 +29,6 @@
 						"styles": [
 							"projects/petshop-shell/src/styles.scss"
 						],
-						"outputMode": "server",
-						"ssr": {
-							"entry": "projects/petshop-shell/src/server.ts"
-						},
 						"main": "projects/petshop-shell/src/main.ts",
 						"outputPath": "dist/petshop-shell",
 						"index": "projects/petshop-shell/src/index.html",
@@ -130,10 +126,6 @@
 						"styles": [
 							"projects/petshop-auth/src/styles.scss"
 						],
-						"outputMode": "server",
-						"ssr": {
-							"entry": "projects/petshop-auth/src/server.ts"
-						},
 						"main": "projects/petshop-auth/src/main.ts",
 						"index": "projects/petshop-auth/src/index.html",
 						"extraWebpackConfig": "projects/petshop-auth/webpack.config.js",
@@ -230,10 +222,6 @@
 						"styles": [
 							"projects/petshop-financeiro/src/styles.scss"
 						],
-						"outputMode": "server",
-						"ssr": {
-							"entry": "projects/petshop-financeiro/src/server.ts"
-						},
 						"main": "projects/petshop-financeiro/src/main.ts",
 						"index": "projects/petshop-financeiro/src/index.html",
 						"extraWebpackConfig": "projects/petshop-financeiro/webpack.config.js",

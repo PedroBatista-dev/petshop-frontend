@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../../../shared/src/public-api.js';
+import { AuthService } from 'shared';
 
 @Component({
   selector: 'app-dashboard',

@@ -4,7 +4,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
 import { MaterialImports } from '../../material/material.imports.js';
-import { AuthService, BaseComponent, ControlErrorDisplayDirective, LoginPayload, NotificationService } from '../../../../../shared/src/public-api';
+import { AuthService, BaseComponent, ControlErrorDisplayDirective, LoginPayload, NotificationService } from 'shared';
 
 @Component({
   selector: 'app-login',

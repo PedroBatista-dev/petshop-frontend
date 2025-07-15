@@ -5,7 +5,7 @@ import { NgxMaskDirective } from 'ngx-mask';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
 import { AuthService, BaseComponent, cnpjValidator, NotificationService, RegisterClientPayload, telefoneValidator } from 'shared';
-import { AutoFocusDirective, ControlErrorDisplayDirective, PrimeiraLetraMaiusculaDirective } from '../../../../../shared/src/public-api';
+import { AutoFocusDirective, ControlErrorDisplayDirective, PrimeiraLetraMaiusculaDirective } from 'shared';
 import { MaterialImports } from '../../material/material.imports';
 
 @Component({

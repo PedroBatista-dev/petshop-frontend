@@ -92,7 +92,7 @@ export class AuthService {
         this.loadUserProfile();
         this.notificationService.closeLoading();
         this.notificationService.success('Sucesso!', 'Login realizado com sucesso!');
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/financeiro/dashboard']);
       }),
       catchError((error: any) => {
         this.notificationService.closeLoading();

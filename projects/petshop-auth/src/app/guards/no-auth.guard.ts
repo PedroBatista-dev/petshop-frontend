@@ -10,7 +10,7 @@ export const noAuthGuard: CanActivateFn = () => {
   return authService.isLoggedIn().pipe(
     map(isLoggedIn => {
       if (isLoggedIn) {
-        router.navigate(['/dashboard']); 
+        router.navigate(['/financeiro/dashboard']); 
         return false; 
       }
       return true; 

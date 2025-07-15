@@ -17,5 +17,6 @@ export const routes: Routes = [
             remoteEntry: 'http://localhost:4202/remoteEntry.js',
             exposedModule: './routes'
         }).then(m => m.routes)
-    }
+    },
+    { path: '', redirectTo: 'auth', pathMatch: 'full' }
 ];

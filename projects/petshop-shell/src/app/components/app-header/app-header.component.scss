@@ -1,0 +1,84 @@
+mat-toolbar {
+    display: flex;
+    align-items: center;
+    height: 64px; // Altura padrão do toolbar
+    padding: 0 16px; // Espaçamento interno
+  
+    .app-logo {
+      height: 40px; // Ajuste o tamanho da logo
+      margin-left: 8px;
+      object-fit: contain; // Garante que a logo se ajuste sem distorção
+    }
+  
+    .spacer {
+      flex: 1 1 auto; // Empurra os itens para as extremidades
+    }
+  
+    .search-field {
+      width: 300px; // Largura do campo de pesquisa
+      margin: 0 16px; // Espaçamento lateral
+  
+      .mat-mdc-form-field-flex {
+        background-color: rgba(255, 255, 255, 0.1); // Cor de fundo do campo
+        border-radius: 4px;
+        padding: 0 12px;
+      }
+  
+      .mat-mdc-form-field-infix {
+        padding: 8px 0; // Ajuste interno
+      }
+  
+      input {
+        color: white; // Cor do texto
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.7); // Cor do placeholder
+        }
+      }
+  
+      .mat-icon {
+        color: rgba(255, 255, 255, 0.7); // Cor do ícone de pesquisa
+      }
+    }
+  
+    .profile-button {
+      display: flex;
+      align-items: center;
+      min-width: unset; // Remove largura mínima para se ajustar ao conteúdo
+      padding: 0 8px;
+  
+      .profile-icon {
+        font-size: 32px; // Tamanho do ícone de perfil
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.2); // Fundo para o ícone
+        color: white;
+      }
+  
+      .profile-picture {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid white; // Borda opcional
+      }
+  
+      .profile-initials {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: #424242; // Cor de fundo para as iniciais
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 14px;
+        margin-left: 8px;
+      }
+  
+      .mat-icon {
+        color: white;
+      }
+    }
+  }

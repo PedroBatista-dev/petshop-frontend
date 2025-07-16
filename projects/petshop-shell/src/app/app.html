@@ -1,1 +1,18 @@
-<router-outlet></router-outlet>
+<div class="main-container" *ngIf="logado">
+    <app-header (toggleSidenav)="toggleSidenav()" (search)="onSearch($event)"></app-header>
+  
+    <mat-sidenav-container class="sidenav-container">
+      <mat-sidenav #sidenav mode="side" opened class="sidenav">
+        <app-sidenav-menu (navigate)="sidenav.close()"></app-sidenav-menu>
+      </mat-sidenav>
+      <mat-sidenav-content class="sidenav-content">
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  
+    <app-footer></app-footer>
+  </div>
+  
+  <div class="login-container" *ngIf="!logado">
+    <router-outlet></router-outlet>
+  </div>

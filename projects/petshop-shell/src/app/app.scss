@@ -1,0 +1,57 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; // Garante que o host ocupe 100% da altura da viewport
+    overflow: hidden; // Evita rolagem na tela principal
+  }
+  
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .sidenav-container {
+    flex: 1; // Permite que o container ocupe o espaço restante verticalmente
+    overflow: hidden; // Garante que o conteúdo do sidenav container não cause overflow
+  }
+  
+  .sidenav {
+    width: 300px; // Largura do seu menu lateral
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1); // Sombra para destaque
+    display: flex;
+    flex-direction: column; // Para o menu lateral ter um layout flexível
+    justify-content: space-between; // Espaça itens internos como um possível rodapé do menu
+  }
+  
+  .sidenav-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto; // Permite rolagem no conteúdo principal
+  }
+  
+  // Estilos para o login-container (quando o usuário não está logado)
+  .login-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f2f5; // Cor de fundo para a tela de login
+  }
+  
+  // Estilos globais para a aplicação
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+  }
+  
+  // Para garantir que o MatSidenavContainer e o RouterOutlet funcionem corretamente
+  // Você pode precisar adicionar isso ao seu styles.scss global ou diretamente aqui
+  // (Apenas se houver problemas de height/width)
+  mat-sidenav-container {
+    height: 100%;
+  }

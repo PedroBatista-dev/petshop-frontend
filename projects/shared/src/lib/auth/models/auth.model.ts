@@ -28,9 +28,11 @@ export class LoginPayload {
    */
   export class UserProfile {
     userId!: string;
+    nomeCompleto!: string;
     email!: string;
-    cargoDescricao!: string;
-    codigoEmpresaId?: string;
+    descricaoCargo!: string;
+    idEmpresa?: string;
+    foto?: string;
   
     constructor(data?: Partial<UserProfile>) {
       Object.assign(this, data);

@@ -18,5 +18,6 @@ export const routes: Routes = [
             exposedModule: './routes'
         }).then(m => m.routes)
     },
-    { path: '', redirectTo: 'auth', pathMatch: 'full' }
+    { path: '', redirectTo: 'auth', pathMatch: 'full' },
+    { path: '**', redirectTo: 'auth' },
 ];

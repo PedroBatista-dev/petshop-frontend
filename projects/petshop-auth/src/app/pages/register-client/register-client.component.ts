@@ -57,7 +57,7 @@ export class RegisterClientComponent extends BaseComponent implements OnInit {
       password: ['', [Validators.required, strongPasswordValidator()]],
       confirmPassword: ['', [Validators.required]],
       empresaAutocomplete: ['', [Validators.required]],
-      codigoEmpresaId: [''],
+      idEmpresa: [''],
     },
     {
       validators: [
@@ -85,7 +85,7 @@ export class RegisterClientComponent extends BaseComponent implements OnInit {
   }
 
   onEmpresaSelected(selectedItem: AutocompleteItem): void {
-    this.form.get('codigoEmpresaId')?.setValue(selectedItem.id); 
+    this.form.get('idEmpresa')?.setValue(selectedItem.id); 
   }
 
   private updatePasswordStrengthText(score: number): void {

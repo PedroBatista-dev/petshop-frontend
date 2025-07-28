@@ -86,7 +86,7 @@ export class AuthService {
 
   login(payload: LoginPayload): Observable<any> {
     this.notificationService.loading('Realizando login...');
-    return this.http.post<LoginResponse>(`${this.apiUrl}login`, payload).pipe(
+    return this.http.post<LoginResponse>(`${this.apiUrl}/auth/login`, payload).pipe(
       tap((response: any) => {
         if (this.isBrowser) { 
           localStorage.setItem('jwt_token', response.access_token);

@@ -1,0 +1,30 @@
+<mat-nav-list>
+    <mat-expansion-panel
+      *ngFor="let project of projects"
+      [expanded]="project.expanded"
+      (opened)="project.expanded = true"
+      (closed)="project.expanded = false"
+      class="project-expansion-panel"
+    >
+      <mat-expansion-panel-header class="project-header">
+        <mat-panel-title>
+          <mat-icon matListItemIcon>{{ project.icon }}</mat-icon>
+          <span matListItemTitle [matTooltip]="project.name" matTooltipPosition="right">{{ project.name }}</span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+  
+      <mat-nav-list class="sub-menu">
+        <a
+          mat-list-item
+          *ngFor="let screen of project.screens"
+          [routerLink]="screen.route"
+          (click)="onNavigate()"
+          [matTooltip]="screen.name"
+          matTooltipPosition="right"
+        >
+          <span matListItemTitle>{{ screen.name }}</span>
+        </a>
+      </mat-nav-list>
+      <mat-divider></mat-divider>
+    </mat-expansion-panel>
+  </mat-nav-list>

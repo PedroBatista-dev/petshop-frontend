@@ -1,0 +1,14 @@
+.footer-toolbar {
+    height: 48px; // Altura do rodapé
+    background-color: #3f51b5; // Cor primária do Material Design
+    color: white; // Cor do texto
+    font-size: 0.85em; // Tamanho da fonte
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px; // Espaçamento interno
+  }
+  
+  .spacer {
+    flex: 1 1 auto; // Empurra os itens para as extremidades
+  }

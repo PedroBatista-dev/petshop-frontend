@@ -1,0 +1,44 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="onToggleSidenav()" matTooltip="Menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <img src="assets/logo.png" alt="PetShop Logo" class="app-logo" />
+  
+    <span class="spacer"></span>
+  
+    <mat-form-field class="search-field" appearance="outline">
+      <mat-label>Pesquisar telas</mat-label>
+      <input matInput [formControl]="searchControl" placeholder="Ex: Dashboard" />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  
+    <span class="spacer"></span>
+  
+    <button
+      mat-button
+      [matMenuTriggerFor]="profileMenu"
+      class="profile-button"
+      matTooltip="Perfil do Usuário"
+    >
+      <mat-icon *ngIf="!userProfile?.foto" class="profile-icon"
+        >account_circle</mat-icon
+      >
+      <img
+        *ngIf="userProfile?.foto"
+        [src]="userProfile?.foto"
+        alt="Foto de Perfil"
+        class="profile-picture"
+      />
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #profileMenu="matMenu">
+      <button mat-menu-item (click)="onViewProfile()">
+        <mat-icon>person</mat-icon>
+        <span>Meu Perfil</span>
+      </button>
+      <button mat-menu-item (click)="onLogout()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Sair</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>

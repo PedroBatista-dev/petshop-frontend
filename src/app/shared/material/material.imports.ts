@@ -10,6 +10,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core'; 
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDivider, MatList, MatListItem, MatNavList } from '@angular/material/list';
+import { MatTooltip } from '@angular/material/tooltip';
+import { MatToolbar } from '@angular/material/toolbar';
 
 export const MaterialImports = [
   MatFormFieldModule,
@@ -23,4 +26,10 @@ export const MaterialImports = [
   MatNativeDateModule,
   MatAutocompleteModule,
   MatSidenavModule,
+  MatNavList,
+  MatTooltip,
+  MatDivider,
+  MatToolbar,
+  MatList,
+  MatListItem
 ];

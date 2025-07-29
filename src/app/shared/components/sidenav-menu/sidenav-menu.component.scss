@@ -1,75 +1,74 @@
+
 :host {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: #f5f5f5; // Cor de fundo do menu
-    padding-top: 16px; // Espaçamento superior
-  }
-  
-  mat-nav-list {
-    flex-grow: 1;
-    width: 300px; // Largura do menu lateral
-  
-    // Estilos para o painel de expansão
-    .project-expansion-panel {
-      background: transparent; // Fundo transparente para que a cor do host apareça
-      box-shadow: none; // Remover sombra padrão do expansion panel
-      border-radius: 4px;
-      margin: 4px 8px; // Margem para os painéis
-  
-      .project-header {
-        padding: 0 16px; // Ajustar padding interno do cabeçalho
-        height: 48px; // Altura padrão do item de lista
-        min-height: 48px !important; // Garante a altura mínima
-        border-radius: 4px;
-        transition: background-color 0.2s ease-in-out;
-  
-        &:hover {
-          background-color: rgba(0, 0, 0, 0.04); // Cor ao passar o mouse
-        }
+  display: block;
+  height: 100%;
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.left-sidenav, .right-sidenav {
+  background-color: #ffffff;
+}
+
+.left-sidenav {
+  width: 300px;
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+
+  .mat-mdc-list-item {
+    &.mat-mdc-list-item-activated {
+      background-color: #e8f0fe;
+      color: #1967d2;
+      .mat-icon {
+        color: #1967d2;
       }
-  
-      .mat-panel-title {
-        display: flex;
-        align-items: center;
-        flex-grow: 1; // Para ocupar o espaço disponível
-        font-size: 1em; // Tamanho da fonte do título do projeto
-        color: rgba(0, 0, 0, 0.87); // Cor padrão do texto
-  
-        .mat-icon {
-          margin-right: 16px; // Espaçamento entre ícone e texto
-        }
-      }
-  
-      .mat-expansion-panel-body {
-        padding: 0; // Remover padding padrão do corpo do painel
-      }
-    }
-  
-    .sub-menu {
-      padding-left: 32px; // Recuo para o submenu
-      width: 100%; // Ocupa a largura total do painel
-  
-      .mat-mdc-list-item {
-        height: 40px; // Altura padrão do item de lista do submenu
-        font-size: 0.85em; // Tamanho de fonte menor para subitens
-        border-radius: 4px;
-        margin: 2px 0; // Margem para os itens do submenu
-        transition: background-color 0.2s ease-in-out;
-  
-        &:hover {
-          background-color: rgba(0, 0, 0, 0.04); // Cor ao passar o mouse
-        }
-  
-        &.mat-mdc-list-item-active {
-          background-color: var(--mdc-list-list-item-selected-state-layer-color, #e0e0e0);
-          font-weight: 500;
-        }
-      }
-    }
-  
-    mat-divider {
-      margin: 8px 0; // Margem para o divisor
-      border-color: rgba(0, 0, 0, 0.12); // Cor do divisor
     }
   }
+}
+
+.project-list-item {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+
+.right-sidenav {
+  width: 300px;
+  border-left: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 0; // Remove padding para a toolbar ocupar toda a largura
+
+  .active-link {
+    background-color: rgba(0, 0, 0, 0.05);
+    font-weight: 500;
+  }
+}
+
+// Estilo para a barra de ferramentas do submenu (com botão Voltar)
+.submenu-toolbar {
+  background-color: #f5f5f5;
+  color: rgba(0,0,0,.87);
+  box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
+
+  // Garante que o botão 'Voltar' fique à esquerda do título
+  button {
+    margin-right: 8px;
+  }
+}
+
+// Estilos para o conteúdo principal
+.sidenav-content {
+  padding: 1rem;
+}
+
+// Estilo e posicionamento do botão hamburger (apenas para demonstração)
+.hamburger-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10; // Para ficar acima de algum conteúdo inicial
+}
+

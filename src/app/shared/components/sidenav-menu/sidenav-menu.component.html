@@ -1,23 +1,50 @@
-<mat-nav-list>
-    <mat-expansion-panel
-      *ngFor="let project of projects"
-      [expanded]="project.expanded"
-      (opened)="project.expanded = true"
-      (closed)="project.expanded = false"
-      class="project-expansion-panel"
-    >
-      <mat-expansion-panel-header class="project-header">
-        <mat-panel-title>
-          <mat-icon matListItemIcon>{{ project.icon }}</mat-icon>
-          <span matListItemTitle [matTooltip]="project.name" matTooltipPosition="right">{{ project.name }}</span>
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-  
-      <mat-nav-list class="sub-menu">
+<mat-sidenav-container class="sidenav-container" autosize>
+  <mat-sidenav
+    #leftSidenav
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)"
+    class="left-sidenav"
+  >
+    <mat-nav-list>
+      <mat-list-item
+        *ngFor="let project of projects"
+        (click)="onProjectSelected(project)"
+        [activated]="project === selectedProject && !(isHandset$ | async)"
+        [matTooltip]="project.name"
+        matTooltipPosition="right"
+        class="project-list-item" 
+      >
+        <mat-icon matListItemIcon>{{ project.icon }}</mat-icon>
+        <span matListItemTitle>{{ project.name }}</span>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav
+    #rightSidenav
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="selectedProject && !(isHandset$ | async)"
+    position="end"
+    class="right-sidenav"
+  >
+    <div *ngIf="selectedProject">
+      <mat-nav-list>
+        <mat-toolbar class="submenu-toolbar">
+          <button
+            mat-icon-button
+            (click)="onBackToProjects()"
+            aria-label="Voltar para a lista de projetos"
+          >
+            <mat-icon>arrow_back</mat-icon>
+          </button>
+          <span>{{ selectedProject.name }}</span>
+        </mat-toolbar>
+
         <a
           mat-list-item
-          *ngFor="let screen of project.screens"
+          *ngFor="let screen of selectedProject.screens"
           [routerLink]="screen.route"
+          routerLinkActive="active-link"
           (click)="onNavigate()"
           [matTooltip]="screen.name"
           matTooltipPosition="right"
@@ -25,6 +52,19 @@
           <span matListItemTitle>{{ screen.name }}</span>
         </a>
       </mat-nav-list>
-      <mat-divider></mat-divider>
-    </mat-expansion-panel>
-  </mat-nav-list>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="sidenav-content">
+    <button
+      mat-icon-button
+      class="d-md-none hamburger-button"
+      (click)="leftSidenav.toggle()"
+      aria-label="Abrir menu de projetos"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

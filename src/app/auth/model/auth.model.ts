@@ -28,7 +28,6 @@ export class LoginPayload {
    */
   export class UserProfile {
     userId!: string;
-    nomeCompleto!: string;
     email!: string;
     descricaoCargo!: string;
     idEmpresa?: string;
@@ -80,3 +79,33 @@ export class LoginPayload {
       Object.assign(this, data);
     }
   }
+
+  /**
+ * Modelo para o payload de atualização de perfil do cliente.
+ */
+export class UpdateUserProfilePayload {
+  nomeCompleto!: string;
+  cpf!: string;
+  email!: string;
+  dataNascimento!: string;
+  sexo!: string;
+  estadoCivil!: string;
+  telefone!: string;
+  idEmpresa!: string;
+
+  constructor(data?: Partial<UpdateUserProfilePayload>) {
+    Object.assign(this, data);
+  }
+}
+
+/**
+ * Modelo para o payload de alteração de senha.
+ */
+export class ChangePasswordPayload {
+  currentPassword!: string;
+  newPassword!: string;
+
+  constructor(data?: Partial<ChangePasswordPayload>) {
+    Object.assign(this, data);
+  }
+}

@@ -1,8 +1,5 @@
 <mat-toolbar color="primary">
-    <button mat-icon-button (click)="onToggleSidenav()" matTooltip="Menu">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <img src="assets/logo.png" alt="PetShop Logo" class="app-logo" />
+    <img src="logo.jpg" alt="PetShop Logo" class="app-logo" />
   
     <span class="spacer"></span>
   
@@ -32,10 +29,10 @@
       <mat-icon>arrow_drop_down</mat-icon>
     </button>
     <mat-menu #profileMenu="matMenu">
-      <button mat-menu-item (click)="onViewProfile()">
+      <a mat-menu-item routerLink="/profile">
         <mat-icon>person</mat-icon>
         <span>Meu Perfil</span>
-      </button>
+      </a>
       <button mat-menu-item (click)="onLogout()">
         <mat-icon>exit_to_app</mat-icon>
         <span>Sair</span>

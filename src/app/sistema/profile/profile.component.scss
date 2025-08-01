@@ -1,0 +1,50 @@
+.profile-container {
+    padding: 24px;
+    max-width: 900px;
+    margin: 20px auto;
+  }
+  
+  h1 {
+    margin-bottom: 8px;
+  }
+  
+  p {
+    color: #666;
+    margin-bottom: 24px;
+  }
+  
+  mat-card {
+    padding: 20px;
+  }
+  
+  .row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .col-12, .col-md-6 {
+    flex: 1;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .form-progress {
+    margin: 20px 0;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  @media (max-width: 767px) {
+    .row {
+      flex-direction: column;
+      gap: 0;
+    }
+  }

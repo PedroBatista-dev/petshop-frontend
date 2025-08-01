@@ -35,6 +35,7 @@ export class GenericAutocompleteComponent implements OnInit, OnDestroy {
   @Input() service!: BaseService<any>; // O serviço que fará a busca de dados (ex: EmpresaService)
   @Input() displayProperty!: string; // Propriedade a ser exibida no input (ex: 'razaoSocial', 'descricao')
   @Input() required: boolean = false; // Se o campo é obrigatório
+  @Input() showClearButton: boolean = true; 
 
   @Output() itemSelected = new EventEmitter<AutocompleteItem>(); // Emite o item completo selecionado
 

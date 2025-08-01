@@ -11,6 +11,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { UserProfile } from '../../../auth/model/auth.model';
 import { AuthService } from '../../../auth/service/auth.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -25,13 +26,13 @@ import { AuthService } from '../../../auth/service/auth.service';
     MatMenuModule,
     MatTooltipModule,
     ReactiveFormsModule,
+    RouterModule
   ],
   templateUrl: './app-header.component.html',
   styleUrl: './app-header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppHeaderComponent implements OnInit {
-  @Output() toggleSidenav = new EventEmitter<void>();
   @Output() search = new EventEmitter<string>();
 
   searchControl = new FormControl('');
@@ -51,18 +52,8 @@ export class AppHeaderComponent implements OnInit {
       });
   }
 
-  onToggleSidenav(): void {
-    this.toggleSidenav.emit();
-  }
-
   onLogout(): void {
     this.authService.logout();
-    // Redirecionamento será tratado pelo AuthGuard ou NoAuthGuard
   }
 
-  // Exemplo de como você pode navegar para a página de perfil
-  onViewProfile(): void {
-    console.log('Navegar para a página de perfil');
-    // Implemente a navegação para a página de perfil do usuário aqui
-  }
 }

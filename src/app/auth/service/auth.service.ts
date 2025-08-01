@@ -6,7 +6,7 @@ import { tap, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { environment } from '../../environments/environments';
-import { LoginPayload, LoginResponse, RegisterClientPayload, UserProfile } from '../model/auth.model';
+import { ChangePasswordPayload, LoginPayload, LoginResponse, RegisterClientPayload, UpdateUserProfilePayload, UserProfile } from '../model/auth.model';
 import { NotificationService } from '../../shared/services/notification/notification.service';
 
 @Injectable({
@@ -59,7 +59,6 @@ export class AuthService {
       const payload = JSON.parse(atob(token.split('.')[1]));
       return {
         userId: payload.sub,
-        nomeCompleto: payload.nomeCompleto,
         email: payload.email,
         descricaoCargo: payload.descricaoCargo,
         idEmpresa: payload.idEmpresa,
@@ -186,6 +185,40 @@ export class AuthService {
       catchError((error: any) => {
         this.notificationService.closeLoading();
         let errorMessage = 'Erro ao redefinir senha.';
+        if (error.error && error.error.message) {
+          errorMessage = error.error.message;
+        }
+        this.notificationService.error('Erro', errorMessage);
+        return throwError(() => error);
+      })
+    );
+  }
+
+  updateUserProfile(payload: UpdateUserProfilePayload, id: string, profilePicture?: File | null): Observable<any> {
+    this.notificationService.loading('Atualizando perfil...');
+
+    return this.http.put<UserProfile>(`${this.apiUrl}/usuarios/${id}`, { ...payload, id: id, foto: profilePicture ? profilePicture : null }).pipe(
+      tap((updatedProfile) => {
+        this.notificationService.closeLoading();
+        this.notificationService.success('Sucesso', 'Perfil atualizado com sucesso!');
+      }),
+      catchError((error: any) => {
+        this.notificationService.closeLoading();
+        this.notificationService.error('Erro', 'Não foi possível atualizar o perfil.');
+        return throwError(() => error);
+      })
+    );
+  }
+
+  changePassword(payload: ChangePasswordPayload): Observable<any> {
+    this.notificationService.loading('Alterando senha...');
+    return this.http.patch(`${this.apiUrl}/users/change-password`, payload).pipe(
+      tap(() => {
+        this.notificationService.closeLoading();
+      }),
+      catchError((error: any) => {
+        this.notificationService.closeLoading();
+        let errorMessage = 'Não foi possível alterar a senha.';
         if (error.error && error.error.message) {
           errorMessage = error.error.message;
         }

@@ -1,14 +1,10 @@
 import { Component, ChangeDetectionStrategy, EventEmitter, Output, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
-import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSidenav } from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { MatButtonModule } from '@angular/material/button';
 import { MaterialImports } from '../../material/material.imports';
 import { AuthService } from '../../../auth/service/auth.service';
 
@@ -38,7 +34,6 @@ interface Screen {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidenavMenuComponent {
-  @Output() navigate = new EventEmitter<void>();
 
   @ViewChild('leftSidenav') leftSidenav!: MatSidenav;
   @ViewChild('rightSidenav') rightSidenav!: MatSidenav;
@@ -50,17 +45,12 @@ export class SidenavMenuComponent {
 
   public projects: Project[] = [
     {
-      name: 'Autenticação',
-      icon: 'security',
+      name: 'Sistema',
+      icon: 'settings',
       screens: [
-        { name: 'Registrar Cliente', route: '/auth/register-client' },
-        { name: 'Redefinir Senha', route: '/auth/reset-password' },
+        { name: 'Dashboard', route: '/dashboard' },
+        { name: 'Perfil', route: '/profile' },
       ],
-    },
-    {
-      name: 'Financeiro',
-      icon: 'account_balance',
-      screens: [{ name: 'Dashboard', route: '/financeiro/dashboard' }],
     },
   ];
 
@@ -101,7 +91,6 @@ export class SidenavMenuComponent {
 
   async onNavigate(): Promise<void> {
     const isMobile = this.breakpointObserver.isMatched(Breakpoints.Handset);
-    this.navigate.emit();
     this.selectedProject = null;
     
     if (isMobile) {

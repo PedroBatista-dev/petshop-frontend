@@ -7,6 +7,7 @@ import { RegisterClientComponent } from './auth/register-client/register-client.
 import { RegisterEnterpriseComponent } from './auth/register-enterprise/register-enterprise.component';
 import { authGuard } from './shared/guards/auth.guard';
 import { DashboardComponent } from './sistema/dashboard/dashboard.component';
+import { ProfileComponent } from './sistema/profile/profile.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent, canActivate: [noAuthGuard] },
@@ -15,5 +16,6 @@ export const routes: Routes = [
     { path: 'register-client', component: RegisterClientComponent, canActivate: [noAuthGuard] },
     { path: 'register-enterprise', component: RegisterEnterpriseComponent, canActivate: [noAuthGuard] },
     { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
+    { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
     { path: '', redirectTo: 'login', pathMatch: 'full' }
 ];

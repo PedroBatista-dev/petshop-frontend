@@ -1,0 +1,7 @@
+<div class="profile-picture-container">
+    <img [src]="selectedFileUrl || currentImageUrl || 'assets/default-avatar.png'" alt="Foto de Perfil" class="profile-picture">
+    <button mat-fab type="button" color="accent" (click)="triggerFileInput()" matTooltip="Alterar foto de perfil" class="upload-button">
+      <mat-icon>photo_camera</mat-icon>
+    </button>
+    <input type="file" id="fileInput" hidden (change)="onFileSelected($event)" accept="image/png, image/jpeg, image/gif">
+  </div>

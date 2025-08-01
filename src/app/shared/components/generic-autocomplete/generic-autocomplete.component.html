@@ -12,7 +12,7 @@
       <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
         {{ displayFn(option) }} </mat-option>
     </mat-autocomplete>
-    <button *ngIf="control.value" matSuffix mat-icon-button aria-label="Clear" (click)="onClear()">
+    <button *ngIf="control.value && showClearButton" matSuffix mat-icon-button aria-label="Clear" (click)="onClear()">
       <mat-icon>close</mat-icon>
     </button>
     <mat-error [appControlErrorDisplay]="control!"></mat-error>
